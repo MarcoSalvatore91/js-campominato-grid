@@ -28,7 +28,13 @@ body {
     padding-right: 50px;
 }
 
-#btn {
+#btn-send {
+    position: absolute;
+    top: 40px;
+    right: 100px;
+}
+
+#btn-cancel {
     position: absolute;
     top: 40px;
     right: 40px;
@@ -42,7 +48,6 @@ body {
     height: 600px;
     width: 600px;
     margin: auto;
-    border: 2px solid black;
     display: flex;
     flex-wrap: wrap;
 }
@@ -73,4 +78,8 @@ body {
 
 .color-blue {
     background-color: lightblue;
+}
+
+.clicked {
+    background-color: red;
 }
