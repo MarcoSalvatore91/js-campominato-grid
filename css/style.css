@@ -11,19 +11,27 @@ body {
 #head {
     display: flex;
     justify-content: space-between;
-    height: 100px;
+    min-height: 100px;
     background-color: aqua;
     margin-bottom: 100px;
+    position: relative;
 }
 
 #title {
     line-height: 100px;
     padding-left: 50px;
+
 }
 
 #user-choice {
     line-height: 100px;
     padding-right: 50px;
+}
+
+#btn {
+    position: absolute;
+    top: 40px;
+    right: 40px;
 }
 
 #main-page {
@@ -35,6 +43,32 @@ body {
     width: 600px;
     margin: auto;
     border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#grid .cells-easy {
+    height: calc(100% / 10);
+    width: calc(100% / 10);
+    border: 1px solid red;
+    cursor: pointer;
+    background-color: white;
+}
+
+#grid .cells-medium {
+    height: calc(100% / 9);
+    width: calc(100% / 9);
+    border: 1px solid red;
+    cursor: pointer;
+    background-color: white;
+}
+
+#grid .cells-hard {
+    height: calc(100% / 7);
+    width: calc(100% / 7);
+    border: 1px solid red;
+    cursor: pointer;
+    background-color: white;
 }
 
 .color-blue {
