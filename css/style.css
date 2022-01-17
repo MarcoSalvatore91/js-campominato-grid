@@ -36,3 +36,7 @@ body {
     margin: auto;
     border: 2px solid black;
 }
+
+.color-blue {
+    background-color: lightblue;
+}
