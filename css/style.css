@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: lightcoral;
+}
+
+#head {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    background-color: aqua;
+    margin-bottom: 100px;
+}
+
+#title {
+    line-height: 100px;
+    padding-left: 50px;
+}
+
+#user-choice {
+    line-height: 100px;
+    padding-right: 50px;
+}
+
+#main-page {
+    margin-bottom: 100px;
+}
+
+#grid {
+    height: 600px;
+    width: 600px;
+    margin: auto;
+    border: 2px solid black;
+}
