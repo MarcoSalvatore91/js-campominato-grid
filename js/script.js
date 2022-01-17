@@ -13,28 +13,33 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro. */
 const number = (num) => {
     let number = '';
 
-    for (let i = 1; i <= num; i++) {
-        number += [i];
+    for (let i = 0; i <= num; i++) {
+        number = [i];
     }
+
+    console.log(number);
 
     return number;
 }
 
-const cells = (cell) => {
-    let cells;
+const cells = (num1, num2) => {
+    let result;
 
-    for (let i = 1; i <= cell; i++) {
-        cells += [i];
-    }
+    const cells = num1;
+    const column = num2;
+    const total = cells * column;
 
-    return cells;
+    result = total;
+
+    return result;
 }
 
 // 2- Creare delle costanti di appoggio
 
 const difficultyChoice = document.getElementById('difficulty-choice');
 const grid = document.getElementById('grid');
-const btn = document.getElementById('btn');
+const btnSend = document.getElementById('btn-send');
+const btnCancel = document.getElementById('btn-cancel');
 
 // 3- Creare un menu' con opzioni multiple
 
@@ -53,45 +58,38 @@ option3.id = 'option-3'
 option3.innerHTML = 'Difficile';
 difficultyChoice.appendChild(option3);
 
+// 4- Condizione dimensione celle
 
-// 4- Celle Difficoltà 1
+btnSend.addEventListener ('click', () => { 
 
-const cellsEasy = 10;
-const columnsEasy = 10;
-const totalCellsEasy = cellsEasy * columnsEasy;
-
-// 2- Celle Difficoltà 2
-
-const cellsMedium = 9;
-const columnsMedium = 9;
-const totalCellsMedium = cellsMedium * columnsMedium;
-
-// 3- Celle Difficoltà 3
-
-const cellsHard = 7;
-const columnsHard = 7;
-const totalCellsHard = cellsHard * columnsHard;
-
-// 4- Celle
-
-btn.addEventListener ('click', function(){
-if (option1) {
-    for (let i = 0; i < totalCellsEasy; i++) {
-        const cell = document.createElement('div');
-        cell.className = 'cells-easy';
-        grid.appendChild(cell);
+    let result;
+    
+    if (difficultyChoice.value === 'Facile') {
+        result = cells(10, 10);
+        } else if (difficultyChoice.value === 'Medio') {
+            result = cells(9, 9);
+        } else if (difficultyChoice.value === 'Difficile') {
+            result = cells(7, 7);
+        }
+        for (let i = 0; i < result; i++) {
+            const cell = document.createElement('div');
+            if (difficultyChoice.value === 'Facile') {
+                cell.className = 'cells-easy';
+            } else if (difficultyChoice.value === 'Medio') {
+                cell.className = 'cells-medium';
+            } else if (difficultyChoice.value === 'Difficile') {
+                cell.className = 'cells-hard';
+            }
+            grid.appendChild(cell);
+            const numberGroup = number(result);
+            cell.id = numberGroup;
+            cell.innerHTML = numberGroup;
+                        
+           /*  cell.addEventListener ('click', () => {
+            cell.className = ('clicked');
+        }) */
     }
-} else if (option2) {
-    for (let i = 0; i < totalCellsMedium; i++) {
-        const cell = document.createElement('div');
-        cell.className = 'cells-medium';
-        grid.appendChild(cell);
-    }
-} else if (option3) {
-    for (let i = 0; i < totalCellsHard; i++) {
-        const cell = document.createElement('div');
-        cell.className = 'cells-hard';
-        grid.appendChild(cell);
-    }
-}
+})
+
+btnCancel.addEventListener ('click', () => {
 })
