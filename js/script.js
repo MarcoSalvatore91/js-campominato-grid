@@ -10,18 +10,6 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro. */
 
 // 1- Creare delle function neutre
 
-const number = (num) => {
-    let number = '';
-
-    for (let i = 0; i <= num; i++) {
-        number = [i];
-    }
-
-    console.log(number);
-
-    return number;
-}
-
 const cells = (num1, num2) => {
     let result;
 
@@ -62,7 +50,9 @@ difficultyChoice.appendChild(option3);
 
 btnSend.addEventListener ('click', () => { 
 
+    grid.innerText = '';
     let result;
+    let resultNumber;
     
     if (difficultyChoice.value === 'Facile') {
         result = cells(10, 10);
@@ -71,25 +61,27 @@ btnSend.addEventListener ('click', () => {
         } else if (difficultyChoice.value === 'Difficile') {
             result = cells(7, 7);
         }
-        for (let i = 0; i < result; i++) {
+        for (let i = 1; i <= result; i++) {
             const cell = document.createElement('div');
             if (difficultyChoice.value === 'Facile') {
                 cell.className = 'cells-easy';
+                resultNumber = [i];
+                console.log(resultNumber)
             } else if (difficultyChoice.value === 'Medio') {
                 cell.className = 'cells-medium';
+                resultNumber = [i];
+                console.log(resultNumber)
             } else if (difficultyChoice.value === 'Difficile') {
                 cell.className = 'cells-hard';
+                resultNumber = [i];
+                console.log(resultNumber)
             }
             grid.appendChild(cell);
-            const numberGroup = number(result);
-            cell.id = numberGroup;
-            cell.innerHTML = numberGroup;
+            cell.innerHTML = resultNumber;
                         
-           /*  cell.addEventListener ('click', () => {
-            cell.className = ('clicked');
-        }) */
+            cell.addEventListener('click', () => {
+            cell.classList.toggle('clicked');
+            console.log(cell);
+        }) 
     }
-})
-
-btnCancel.addEventListener ('click', () => {
 })
